@@ -1,0 +1,27 @@
+# Example item. Copy this section to create more custom items.
+items:
+  thunder_sword:
+    material: DIAMOND_SWORD
+    amount: 1
+    name: "&b&lEspada del Trueno"
+    lore:
+      - "&7Una espada cargada de electricidad."
+      - "&eClick derecho: &fInvocar un rayo."
+    unbreakable: true
+    glow: true
+    permission: "betteritems.item.thunder_sword"
+    cooldown: 5
+    ability:
+      trigger: RIGHT_CLICK
+      type: LIGHTNING
+      particle: SPELL_WITCH
+      sound: ENTITY_LIGHTNING_THUNDER
+    recipe:
+      enabled: false
+      shape:
+        - " G "
+        - " G "
+        - " S "
+      ingredients:
+        G: GOLD_INGOT
+        S: STICK
