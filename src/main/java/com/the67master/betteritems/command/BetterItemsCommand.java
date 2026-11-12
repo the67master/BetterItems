@@ -59,6 +59,7 @@ public class BetterItemsCommand implements CommandExecutor, TabCompleter {
             plugin.reloadConfig();
             plugin.reloadItemsConfig();
             plugin.getItemManager().loadItems();
+            new com.the67master.betteritems.recipe.RecipeManager(plugin).registerAll();
             sender.sendMessage(plugin.color("&aBetterItems recargado. Items: &e" + plugin.getItemManager().getItems().size()));
             return true;
         }
