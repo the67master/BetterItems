@@ -9,7 +9,7 @@ Use Maven: `mvn clean package`. Output: `target/betteritems-1.0.0.jar`.
 - `/bi help`
 - `/bi list`
 - `/bi give <player> <item> [amount]`
-- `/bi editor`
+- `/bi gui` (abre el menú gráfico; opcional)\n- `/bi editor` (alias de `/bi gui`)
 - `/bi reload`
 
 Permission: `betteritems.admin` for administration, `betteritems.use` for ability use. Each item or ability can also declare its own permission node.
