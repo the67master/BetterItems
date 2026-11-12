@@ -21,7 +21,7 @@ public class BetterItemsCommand implements CommandExecutor, TabCompleter {
             sender.sendMessage(plugin.color("&b&lBetterItems &7- Comandos"));
             sender.sendMessage(plugin.color("&e/bi list &7- Lista los items"));
             sender.sendMessage(plugin.color("&e/bi give <jugador> <item> [cantidad]"));
-            sender.sendMessage(plugin.color("&e/bi editor &7- Abre el editor"));
+            sender.sendMessage(plugin.color("&e/bi gui &7- Abre el menu grafico (opcional)"));\n            sender.sendMessage(plugin.color("&e/bi editor &7- Alias de /bi gui"));
             sender.sendMessage(plugin.color("&e/bi reload &7- Recarga configuraciones"));
             return true;
         }
@@ -48,7 +48,7 @@ public class BetterItemsCommand implements CommandExecutor, TabCompleter {
             sender.sendMessage(plugin.color("&aEntregaste &e" + amount + "x " + item.getId() + " &aa " + target.getName() + "."));
             return true;
         }
-        if (args[0].equalsIgnoreCase("editor")) {
+        if (args[0].equalsIgnoreCase("gui") || args[0].equalsIgnoreCase("editor")) {
             if (!(sender instanceof Player)) { sender.sendMessage("Este comando solo puede usarlo un jugador."); return true; }
             if (!sender.hasPermission("betteritems.admin")) { sender.sendMessage(plugin.message("no-permission")); return true; }
             openEditor((Player) sender);
@@ -78,7 +78,7 @@ public class BetterItemsCommand implements CommandExecutor, TabCompleter {
     public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
         List<String> options = new ArrayList<String>();
         if (args.length == 1) {
-            for (String value : new String[]{"help", "list", "give", "editor", "reload"}) if (value.startsWith(args[0].toLowerCase())) options.add(value);
+            for (String value : new String[]{"help", "list", "give", "gui", "editor", "reload"}) if (value.startsWith(args[0].toLowerCase())) options.add(value);
         } else if (args.length == 2 && args[0].equalsIgnoreCase("give")) {
             for (Player player : Bukkit.getOnlinePlayers()) if (player.getName().toLowerCase().startsWith(args[1].toLowerCase())) options.add(player.getName());
         } else if (args.length == 3 && args[0].equalsIgnoreCase("give")) {
