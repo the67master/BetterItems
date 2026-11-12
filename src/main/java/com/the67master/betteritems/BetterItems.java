@@ -3,7 +3,8 @@ package com.the67master.betteritems;
 import com.the67master.betteritems.command.BetterItemsCommand;
 import com.the67master.betteritems.item.ItemManager;
 import com.the67master.betteritems.listener.AbilityListener;
-import com.the67master.betteritems.listener.EditorListener;\nimport com.the67master.betteritems.recipe.RecipeManager;
+import com.the67master.betteritems.listener.EditorListener;
+import com.the67master.betteritems.recipe.RecipeManager;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -21,7 +22,8 @@ public final class BetterItems extends JavaPlugin {
         if (!new File(getDataFolder(), "items.yml").exists()) saveResource("items.yml", false);
         reloadItemsConfig();
         this.itemManager = new ItemManager(this);
-        this.itemManager.loadItems();\n        new RecipeManager(this).registerAll();
+        this.itemManager.loadItems();
+        new RecipeManager(this).registerAll();
 
         BetterItemsCommand command = new BetterItemsCommand(this);
         PluginCommand pluginCommand = getCommand("betteritems");
