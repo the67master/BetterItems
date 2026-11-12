@@ -1,0 +1,9 @@
+settings:
+  prefix: "&8[&bBetterItems&8] "
+  language: "es"
+  cooldown-message: "&cDebes esperar &e%time% &csegundos."
+  no-permission: "&cNo tienes permiso para usar este item."
+  unknown-item: "&cNo existe el item &e%item%&c."
+  give-message: "&aHas recibido &e%amount%x %item%&a."
+  editor-title: "&8BetterItems &7- &fEditor"
+  editor-size: 54
