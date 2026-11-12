@@ -1,0 +1,17 @@
+name: BetterItems
+main: com.the67master.betteritems.BetterItems
+version: 1.0.0
+author: the67master
+description: Custom items, abilities, effects and recipes for Spigot 1.12.2.
+commands:
+  betteritems:
+    aliases: [bi, citems]
+    description: Main BetterItems command
+    usage: /betteritems <help|list|give|reload|editor>
+permissions:
+  betteritems.admin:
+    description: Allows administration of BetterItems
+    default: op
+  betteritems.use:
+    description: Allows use of BetterItems abilities
+    default: true
