@@ -1,4 +1,18 @@
-# Example item. Copy this section to create more custom items.
+# BetterItems - Spigot 1.12.2
+# Abilities available: COMMAND, LIGHTNING, LIGHTNING_DAMAGE, HEAL, FEED, SATURATION,
+# SPEED, SLOWNESS, JUMP, STRENGTH, RESISTANCE, FIRE_RESISTANCE, WATER_BREATHING,
+# NIGHT_VISION, INVISIBILITY, REGENERATION, ABSORPTION, DAMAGE, KNOCKBACK, LAUNCH,
+# TELEPORT_FORWARD, EXPLOSION_EFFECT, FIREBALL, SNOWBALL, ENDER_PEARL, ARROW, POISON,
+# WITHER, BLINDNESS, WEAKNESS, SLOW_TARGET, POTION_ON_HIT, FIRE_TARGET, EXTINGUISH,
+# CLEANSE, CURE_POISON, CRITICAL_ALL, CRITICAL_HIT, PARTICLE_BURST, SOUND, PULL_NEARBY,
+# PUSH_NEARBY, AREA_HEAL, AREA_DAMAGE, DOLPHINS_GRACE, HASTE, MINING_FATIGUE, LEVITATION.
+#
+# Triggers: RIGHT_CLICK, LEFT_CLICK, HIT.
+# Potion effect levels start at 1. Duration is in seconds.
+# Particle names use Bukkit 1.12.2 Particle enum names.
+# particle-color uses RGB (0-255) for the legacy colored-dust effect.
+# Passive effect while: HELD, ARMOR, ANY.
+
 items:
   thunder_sword:
     material: DIAMOND_SWORD
@@ -7,17 +21,30 @@ items:
     lore:
       - "&7Una espada cargada de electricidad."
       - "&eClick derecho: &fInvocar un rayo."
+      - "&eAl golpear: &fdaño crítico."
     unbreakable: true
     glow: true
     permission: "betteritems.item.thunder_sword"
-    cooldown: 5
-    ability:
-      trigger: RIGHT_CLICK
-      type: LIGHTNING
-      particle: SPELL_WITCH
-      sound: ENTITY_LIGHTNING_THUNDER
+    cooldown: 8
+    cooldown-bar-ticks: 160
+    abilities:
+      lightning:
+        trigger: RIGHT_CLICK
+        type: LIGHTNING
+        cooldown: 8
+        particle: SPELL_WITCH
+        particle-count: 25
+        particle-color: "80,180,255"
+        sound: ENTITY_LIGHTNING_THUNDER
+      critical:
+        trigger: HIT
+        type: CRITICAL_ALL
+        multiplier: 1.65
+        particle: CRIT
+        particle-count: 12
+        sound: ENTITY_PLAYER_ATTACK_CRIT
     recipe:
-      enabled: false
+      enabled: true
       shape:
         - " G "
         - " G "
@@ -25,3 +52,79 @@ items:
       ingredients:
         G: GOLD_INGOT
         S: STICK
+
+  poison_dagger:
+    material: IRON_SWORD
+    name: "&2Daga Venenosa"
+    lore:
+      - "&7Envenena al enemigo al golpear."
+    glow: true
+    abilities:
+      poison:
+        trigger: HIT
+        type: POTION_ON_HIT
+        effect: POISON
+        level: 2
+        duration: 6
+        particle: SPELL_MOB
+        sound: ENTITY_PLAYER_HURT
+
+  donor_book:
+    material: BOOK
+    name: "&6&lLibro de Donador"
+    lore:
+      - "&7Click derecho para reclamar el rango."
+    glow: true
+    cooldown: 0
+    abilities:
+      grant_rank:
+        trigger: RIGHT_CLICK
+        type: COMMAND
+        command: "lp user {player} parent set donador"
+        sound: ENTITY_PLAYER_LEVELUP
+        particle: VILLAGER_HAPPY
+        particle-count: 15
+
+  warrior_helmet:
+    material: DIAMOND_HELMET
+    name: "&cCasco del Guerrero"
+    lore:
+      - "&7Otorga fuerza mientras lo llevas equipado."
+    glow: true
+    passive-effects:
+      strength:
+        while: ARMOR
+        effect: INCREASE_DAMAGE
+        level: 1
+        duration: 60
+      resistance:
+        while: ARMOR
+        effect: DAMAGE_RESISTANCE
+        level: 1
+        duration: 60
+
+  speed_boots:
+    material: DIAMOND_BOOTS
+    name: "&bBotas del Viento"
+    lore:
+      - "&7Aumentan tu velocidad al llevarlas puestas."
+    glow: true
+    passive-effects:
+      speed:
+        while: ARMOR
+        effect: SPEED
+        level: 2
+        duration: 60
+
+  miner_pickaxe:
+    material: DIAMOND_PICKAXE
+    name: "&ePico del Minero"
+    lore:
+      - "&7Prisa minera mientras lo sostienes."
+    glow: true
+    passive-effects:
+      haste:
+        while: HELD
+        effect: FAST_DIGGING
+        level: 2
+        duration: 60
