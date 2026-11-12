@@ -7,7 +7,7 @@ commands:
   betteritems:
     aliases: [bi, citems]
     description: Main BetterItems command
-    usage: /betteritems <help|list|give|reload|editor>
+    usage: /betteritems <help|list|give|gui|reload>
 permissions:
   betteritems.admin:
     description: Allows administration of BetterItems
