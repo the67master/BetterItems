@@ -21,7 +21,8 @@ public class BetterItemsCommand implements CommandExecutor, TabCompleter {
             sender.sendMessage(plugin.color("&b&lBetterItems &7- Comandos"));
             sender.sendMessage(plugin.color("&e/bi list &7- Lista los items"));
             sender.sendMessage(plugin.color("&e/bi give <jugador> <item> [cantidad]"));
-            sender.sendMessage(plugin.color("&e/bi gui &7- Abre el menu grafico (opcional)"));\n            sender.sendMessage(plugin.color("&e/bi editor &7- Alias de /bi gui"));
+            sender.sendMessage(plugin.color("&e/bi gui &7- Abre el menu grafico (opcional)"));
+            sender.sendMessage(plugin.color("&e/bi editor &7- Alias de /bi gui"));
             sender.sendMessage(plugin.color("&e/bi reload &7- Recarga configuraciones"));
             return true;
         }
