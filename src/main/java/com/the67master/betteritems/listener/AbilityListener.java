@@ -40,6 +40,12 @@ public class AbilityListener implements Listener {
         for(ConfigurationSection ability:getAbilities(item)){
             String trigger=ability.getString("trigger","HIT");
             if(!trigger.equalsIgnoreCase("HIT"))continue;
+            if(!allowed(attacker,item,ability))continue;
+            int seconds=ability.getInt("cooldown",item.getCooldown());
+            String cooldownKey=attacker.getUniqueId()+":"+item.getId()+":"+ability.getName();
+            long now=System.currentTimeMillis();
+            long ready=cooldowns.containsKey(cooldownKey)?cooldowns.get(cooldownKey):0L;
+            if(ready>now)continue;
             String type=ability.getString("type","NONE").toUpperCase(Locale.ROOT);
             if(type.equals("CRITICAL_ALL")||type.equals("CRITICAL_HIT")){
                 double multiplier=ability.getDouble("multiplier",1.5D);
@@ -51,6 +57,11 @@ public class AbilityListener implements Listener {
                 applyPotion((LivingEntity)e.getEntity(),ability);
             }else{
                 executeAbility(attacker,e.getEntity(),ability);
+            }
+            if(seconds>0){
+                cooldowns.put(cooldownKey,now+seconds*1000L);
+                int bar=ability.getInt("cooldown-bar-ticks",item.getCooldownBarTicks());
+                if(bar>0)attacker.setCooldown(item.getMaterial(),bar);
             }
         }
     }
