@@ -34,7 +34,7 @@ Supported triggers: `RIGHT_CLICK`, `LEFT_CLICK`, `HIT`.
 
 Ability parameters include `cooldown` (seconds), `cooldown-bar-ticks` (client item cooldown indicator), `permission`, `sound`, `particle`, `particle-count`, `particle-color` (RGB 0-255 for legacy colored dust), `duration`, `level`, `amount`, `radius`, `range`, `multiplier`, and ability-specific options.
 
-## Included ability types (47)
+## Included ability types (49)
 COMMAND, RUN_COMMAND, LIGHTNING, LIGHTNING_DAMAGE, HEAL, FEED, SATURATION, SPEED, SLOWNESS, JUMP, STRENGTH, RESISTANCE, FIRE_RESISTANCE, WATER_BREATHING, NIGHT_VISION, INVISIBILITY, REGENERATION, ABSORPTION, DAMAGE, KNOCKBACK, LAUNCH, TELEPORT_FORWARD, EXPLOSION_EFFECT, FIREBALL, SNOWBALL, ENDER_PEARL, ARROW, POISON, WITHER, BLINDNESS, WEAKNESS, SLOW_TARGET, POTION_ON_HIT, FIRE_TARGET, EXTINGUISH, CLEANSE, CURE_POISON, CRITICAL_ALL, CRITICAL_HIT, PARTICLE_BURST, SOUND, PULL_NEARBY, PUSH_NEARBY, AREA_HEAL, AREA_DAMAGE, DOLPHINS_GRACE, HASTE, MINING_FATIGUE, LEVITATION.
 
 For `POTION_ON_HIT`, set `effect`, `level`, and `duration`. Critical abilities accept `multiplier`.
